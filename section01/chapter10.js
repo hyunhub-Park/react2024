@@ -51,7 +51,7 @@ const findArray = arr3.filter((v)=>
 
 //console.log(findArray);
 
-// Map (객체를 새로 만드는 것.)
+// Map (요청하는 정보, 새롭게 배열로 포함시켜 리턴. /배열 or 객체를 새로 만드는 것.)
 const nameArray = arr3.map((v)=>
 {
     return v.name;
@@ -106,3 +106,29 @@ const array6 = [1, 10, 2, 20, 3, 30, 4, 21];
 array6.sort((a,b) =>{return a-b})
 
 console.log(array6);
+
+// join
+const arr7 = ["김동진","님","안녕하세요","반가워요"];
+const joined = arr7.join("==");
+console.log(joined);
+console.log(arr7.join());
+
+// for of 반복문.
+for (let item of array6)
+{
+    console.log(item);
+}
+
+// for in
+const person =
+{
+    name : "kim",
+    age : 20,
+    height : 178
+};
+
+for (let key in person)
+{
+ const value = person[key];
+ console.log(key, value);
+}
