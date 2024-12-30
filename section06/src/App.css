@@ -1,0 +1,65 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    padding: 20px;
+}
+
+.app
+{
+    width: 400px;
+    margin: 0 auto;
+}
+
+.app > section
+{
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.app > h1
+{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.app > section.viewer
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app > section.controller
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+button
+{
+    width: 50px;
+    height: 40px;
+    margin: 10px;
+    font-size: 15pt;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 5px;
+}
+
+.controller > input
+{
+    width: 50px;
+    height: 40px;
+    margin: 10px;
+}
