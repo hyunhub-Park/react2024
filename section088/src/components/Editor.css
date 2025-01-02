@@ -1,0 +1,55 @@
+.Editor
+{
+    display: flex;
+    gap: 10px;
+}
+
+.Editor_ul
+{
+    list-style: none;
+    border: 1px solid rgb(126, 139, 151);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.Editor_ul li
+{
+    width: 500px;
+    margin-top: 10px;
+}
+
+ .Editor input
+{
+    flex: 1;
+    padding: 15px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 5px;
+    width: 400px;
+}
+
+.Editor_ul > li > textarea
+{
+    width: 425px;
+    height: 100px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 5px;
+    flex: 1;
+}
+
+.Editor button
+{
+    cursor: pointer;
+    width: 60px;
+    height: 30px;
+    border: none;
+    background-color: rgb(126, 139, 151);
+    color: white;
+    border-radius: 5px;
+    margin-left: 430px;
+    margin-top: 10px;
+}
+
+.Editor button:hover
+{
+    background-color: rgb(182, 221, 255);
+}
