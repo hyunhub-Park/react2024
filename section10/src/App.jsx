@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Editor from './components/Editor';
 import List from './components/List';
 import Exam from './components/Exam';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useRef, useReducer } from 'react';
 
 
@@ -60,18 +60,33 @@ function App()
   const idRef = useRef(3);
 
   // todos에 추가 할 객체(record)를 처리할 함수 handler함수 선언.
-  const onInsert = (data) =>
-  {
-    dispatch(
+  // const onInsert = (data) =>
+  // {
+  //   dispatch(
+  //   {
+  //     type: "INSERT",
+  //     data: {
+  //       id: idRef.current++,  // id가 중복되면 안되기 때문에.
+  //       idDone: false,
+  //       content: data,
+  //       date: new Date().getTime(),        
+  //     }
+  //   });
+
+    // todos에 추가 할 객체(record)를 처리할 함수 handler함수 선언
+    const onInsert = useCallback((data)=>
     {
-      type: "INSERT",
-      data: {
-        id: idRef.current++,  // id가 중복되면 안되기 때문에.
-        idDone: false,
-        content: data,
-        date: new Date().getTime(),        
-      }
-    });
+      dispatch(
+          {
+            type: "INSERT",
+            data: {
+              id: idRef.current++,  // id가 중복되면 안되기 때문에.
+              idDone: false,
+              content: data,
+              date: new Date().getTime(),        
+            }
+     
+    }, []);
     
     const newTodo = {
       id: idRef.current++,  // id가 중복되면 안되기 때문에.
@@ -79,28 +94,50 @@ function App()
       content: data,
       date: new Date().getTime(),
     };
-  };
+  });
   
   // todos에 수정 할 객체(record)를 처리할 함수 handler함수 선언.
-  const onUpdate = (targetId)=>
+  // const onUpdate = (targetId)=>
+  // {
+  //   dispatch(
+  //   {
+  //     type: "UPDATE",
+  //     targetId: targetId
+  //   });
+  // };
+
+  const onUpdate = useCallback((targetId)=>
   {
     dispatch(
-    {
-      type: "UPDATE",
-      targetId: targetId
-    });
-  };
+      {
+        type: "UPDATE",
+        targetId: targetId
+      });
+
+  }, []);
 
   // todos에 삭제 할 객체(record)를 처리할 함수 handler함수 선언.
-  const onDelete = (targetId)=>
+  // const onDelete = (targetId)=>
+  // {
+  //   dispatch(
+  //   {
+  //     type: "DELETE",
+  //     // data: targetId,로 해도 됨.
+  //     targetId: targetId,
+  //   });
+  // };
+
+  const onDelete = useCallback((targetId)=>
   {
     dispatch(
-    {
-      type: "DELETE",
-      // data: targetId,로 해도 됨.
-      targetId: targetId,
-    });
-  };
+      {
+        type: "DELETE",
+        // data: targetId,로 해도 됨.
+        targetId: targetId,
+      });
+
+
+  }, []);
 
   return (
     <>

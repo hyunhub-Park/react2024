@@ -54,6 +54,8 @@ const List = ({todos, onUpdate, onDelete})=>
     {
         console.log("getAnalyzeData 호출");
         const totalCount = todos.length;
+
+        // 시간이 많이 소요됨.
         const todosDone = todos.filter((item)=>
         {
             // 배열이 전달함.
