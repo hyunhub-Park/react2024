@@ -29,7 +29,26 @@ function sub1(a, b)
 // let addfunc = add1
 
 // ESM 모듈방식으로 전환.
+// 구조분해 할당은 이름을 같게 지정해야 함.
+// import {add1, sub1} from'./math.js';
+
+function multiply (a, b)
+{
+    return a*b;
+}
+
+// export function mutliply (a, b)
+// {
+//     return a*b;
+// }
+
+// export default function mutliply (a, b)
+// {   // default는 하나만 사용 가능함.
+//     // import multiply from './math.js';
+//     return a*b;
+// }
+
 export
 {
-    add1, sub1
+    add1, sub1, multiply,
 };
