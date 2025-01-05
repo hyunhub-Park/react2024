@@ -1,0 +1,73 @@
+.DiaryList .menu_bar
+{
+    margin: 20px 0px;
+    display: flex;
+    gap: 10px;
+
+    height: 35px;
+}
+
+.DiaryList .menu_bar select
+{
+    /* background-color: rgb(236, 236, 236); */
+    border: solid 1px rgb(236, 236, 236);
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 13pt;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.DiaryList .menu_bar select option
+{
+    background-color: white;
+    
+    font-size: 13pt;
+}
+
+.DiaryList .menu_bar button
+{
+    flex: 1;
+
+    font-size: 13pt;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: thistle;
+    background-color: thistle;
+}
+
+.DiaryList .menu_bar button:hover
+{
+    background-color: rgba(216, 191, 216, 0.800);
+}
+
+.no-posts
+{
+    font-size: 15px;
+    color: #777;
+    text-align: center;
+    padding: 20px;
+}
+
+.search_bar
+{
+    width: 600px;
+    height: 40px;
+    border-bottom: 1px solid thistle;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    outline: none;
+    margin-top: 15px;
+}
+
+input:focus
+{
+    outline: none;
+}
+
+input::placeholder
+{
+    font-size: 11pt;
+}
