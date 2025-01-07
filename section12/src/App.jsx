@@ -1,6 +1,6 @@
 import "./App.css";
+import { Route, Routes, Link, useNavigate } from "react-router-dom";
 import { createContext, useEffect, useReducer, useRef, useState } from "react";
-import { Route, Routes } from "react-router-dom";
 import Diary from "./pages/Diary";
 import Edit from "./pages/Edit";
 import Home from "./pages/Home";
@@ -46,6 +46,7 @@ function App()
   const [isLoading, setIsLoading] = useState(true);
   const [data, dispatch] = useReducer(reducer, []);
   const idRef = useRef(0);
+  const nav = useNavigate();  // 상위에 선언하지 않으면 오류가 남. 아래 onClickButton의 nav.
 
   useEffect(()=>
   {
@@ -130,8 +131,19 @@ function App()
     return <div>Loading the data...</div>
   }
 
+  // Query String Event로 페이지 요청하기.
+  const onClickButton = ()=>
+  {
+    nav('/new?value=hello2');
+  };
+
   return (
     <>
+      {/* 동적 라우팅 실습. (Query String) */}
+      <Link to="/new?value=hello">NEW(Query)</Link>
+      {/* <Link to="/diary/1">NEW(Query)</Link> */}
+      <button onClick={onClickButton}>쿼리스트링 이벤트로 페이지 요청하기.</button>
+
       <DiaryStateContext.Provider value={data}>
       <DiaryDispatchContext.Provider value={
       {
@@ -141,7 +153,8 @@ function App()
       }}>
       <Routes> 
         <Route path="/" element={<Home/>} />
-        <Route path="/new" element={<New />} />
+        {/* <Route path="/new" element={<New />} /> */}
+        <Route path="/new/*" element={<New />} />
         <Route path="/diary/:id" element={<Diary />}/>
         <Route path="/edit/:id" element={<Edit />} />
         <Route path="*" element={<Notfound />}/>
@@ -152,7 +165,163 @@ function App()
   );
 }
 
-export default App;// import "./App.css";
+// export default App;// import "./App.css";
+
+
+// import { useState } from "react";
+// import "./default.css";
+
+// function App() {
+
+// const [userList, setUserList] = useState([
+
+// { name: "유저1", age: 24, gender: "남자", phone: "010-2732-2241" },
+
+// { name: "유저2", age: 27, gender: "여자", phone: "010-2674-0093" },
+
+// { name: "유저3", age: 30, gender: "남자", phone: "010-3784-2834" },
+
+// ]);
+
+// const [name, setName] = useState("");
+
+// const [age, setAge] = useState("");
+
+// const [gender, setGender] = useState("");
+
+// const [phone, setPhone] = useState("");
+
+// const registUser = () => {
+
+// const user = { name, age, gender, phone };
+
+// userList.push(user);
+
+// setUserList([...userList]);
+
+// setName("");
+
+// setAge("");
+
+// setGender("");
+
+// setPhone("");
+
+// };
+
+// return (
+
+// <div className="App">
+
+// <h1>회원 정보 출력</h1>
+
+// <hr></hr>
+
+// <table className="member_tbl">
+
+// <thead>
+
+// <tr>
+
+// <th>이름</th>
+
+// <th>나이</th>
+
+// <th>성별</th>
+
+// <th>전화번호</th>
+
+// </tr>
+
+// </thead>
+
+// <tbody>
+
+// {userList.map((item, index) => {
+
+// <User key={"user" + index} item={item} />;
+
+// })}
+
+// </tbody>
+
+// </table>
+
+// <div className="regist-wrap">
+
+// <h3>회원 정보 등록</h3>
+
+// <hr></hr>
+
+// <InputWrap text="이름" data={name} setData={setName} />
+
+// <InputWrap text="나이" data={age} setData={setAge} />
+
+// <InputWrap text="성별" data={gender} setData={setGender} />
+
+// <InputWrap text="전화번호" data={phone} setData={setPhone} />
+
+// <button onClick={registUser}>회원등록</button>
+
+// </div>
+
+// </div>
+
+// );
+
+// }
+
+// const User = (props) => {
+
+// const user = props.user;
+
+// return (
+
+// <tr>
+
+// <td>{user.name}</td>
+
+// <td>{user.age}</td>
+
+// <td>{user.gender}</td>
+
+// <td>{user.phone}</td>
+
+// </tr>
+
+// );
+
+// };
+
+// const InputWrap = (props) => {
+
+// const text = props.text;
+
+// const data = props.data;
+
+// const setData = props.setData;
+
+// const changeInputValue = (e) => {
+
+// setData(e.target.value);
+
+// };
+
+// return (
+
+// <div className="input_wrap">
+
+// <label>{text}</label>
+
+// <input type="text" value={data} onChange={changeInputValue} />
+
+// </div>
+
+// );
+
+// };
+
+// export default App;
 
 
 // import { useReducer, useRef, createContext } from "react";
