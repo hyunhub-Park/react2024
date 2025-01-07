@@ -154,11 +154,14 @@ const Editor = ({ initData, onSubmit }) =>
             <input
                type="file"
                accept="image/*"
-               onChange={(e) => {
+               onChange={(e) =>
+               {
                   const file = e.target.files[0];
-                  if (file) {
+                  if (file)
+                  {
                      const reader = new FileReader();
-                     reader.onloadend = () => {
+                     reader.onloadend = () =>
+                     {
                         setInput({ ...input, emotionImage: reader.result });
                      };
                      reader.readAsDataURL(file);

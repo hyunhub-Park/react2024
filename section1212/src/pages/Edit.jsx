@@ -38,7 +38,7 @@ const Edit = () =>
 
     return (
         <div>
-            <Header title={"게시글 수정하기"}
+            <Header title={"게시글 수정"}
                     leftChild={<Button onClick={()=>nav(-1)} text={<FontAwesomeIcon icon={faChevronLeft} size="2x" />}/>}
                     rightChild={<Button onClick={onClickDelete} text={"삭제하기"} type={"NEGATIVE"} />}
             />
